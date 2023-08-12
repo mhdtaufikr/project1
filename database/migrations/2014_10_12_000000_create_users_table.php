@@ -20,6 +20,10 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->timestamp('last_login')->nullable();
+            $table->integer('login_counter')->default(0); // Default value added
+            $table->boolean('is_active')->default(true); // Default value added
+            $table->string('profile_picture')->nullable(); // Profile picture column
             $table->timestamps();
         });
     }
@@ -34,3 +38,4 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('users');
     }
 }
+
