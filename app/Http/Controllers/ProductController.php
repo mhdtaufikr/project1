@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Product;
+
+
 
 use Illuminate\Http\Request;
 
@@ -81,7 +84,10 @@ public function updateProduct(Request $request) {
             Storage::delete($product->product_picture);
         }
         
-        $product->product_picture = $request->file('product_picture')->store('product_pictures', 'public');
+        $productPicture = $request->file('product_picture');
+        $imageName = time() . '.' . $productPicture->getClientOriginalExtension();
+        $productPicture->move(public_path('img'), $imageName);
+        $product->product_picture = 'img/' . $imageName;
     }
 
     // Save changes if anything was updated
@@ -92,6 +98,7 @@ public function updateProduct(Request $request) {
         return redirect()->back()->with('failed', 'No changes were made to the product.');
     }
 }
+
 
 public function deleteProduct(Request $request){
     $id = $request->input('id'); // Get the product ID

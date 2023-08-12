@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\AuthCustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,16 @@ use App\Http\Controllers\ProductController;
 Route::get('/', [AuthController::class, 'login'])->name('login');
 Route::post('/auth/login', [AuthController::class, 'postLogin']);
 Route::get('/logout', [AuthController::class, 'logout']);
+Route::get('/customer', [CustomerController::class, 'index']);
+
+
+
+Route::get('/customer/login', [AuthCustomerController::class, 'login']);
+Route::get('/customer/register', [AuthCustomerController::class, 'register']);
+Route::post('/customer/register/store', [AuthCustomerController::class, 'store']);
+Route::post('/customer/auth/login', [AuthCustomerController::class, 'postLogin']);
+Route::get('/customer/logout', [AuthCustomerController::class, 'logout']);
+
 
 Route::middleware(['auth'])->group(function () {
     //Home Controller
@@ -32,3 +44,9 @@ Route::middleware(['auth'])->group(function () {
 
 
 });
+
+Route::middleware(['customer.auth'])->group(function () {
+    Route::post('/customer/update-profile', [AuthCustomerController::class, 'updateProfile'])->name('customer.updateProfile');
+   
+});
+
