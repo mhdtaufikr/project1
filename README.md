@@ -81,7 +81,7 @@ Developed by Muhammad Taufik Ramadhan as part of the project for Job Recruiter P
 To access the admin panel, visit `/admin/login` or click the "Admin Login" button in the footer of the website.
 
 - **Email:** taufik@gmail.com
-- **Password:** (Leave blank)
+- **Password:** -
 
 ## Usage
 
