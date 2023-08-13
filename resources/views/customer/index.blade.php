@@ -15,7 +15,7 @@
                 <h3 class="">Hello {{ auth()->guard('customer')->user()->name }} !</a>
             @else
                 <!-- If user is not logged in -->
-                <a class="btn btn-primary btn-lg" href="{{ url('/customer/login') }}">Login</a>
+                <a class="btn btn-primary btn-lg" href="{{ url('customer/login') }}">Login</a>
             @endif
             
             </div>
@@ -48,7 +48,7 @@
                                 <span class="badge bg-danger">Sold</span>
                             @endif
                             <div>
-                                <a href="#" class="btn btn-primary btn-sm" role="button">Buy</a>
+                                <a href="{{ url('customer/detail/'.encrypt($data->id) ) }}" class="btn btn-primary btn-sm" role="button">Detail</a>
                             </div>
                         </div>
                     </div>

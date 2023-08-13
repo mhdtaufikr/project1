@@ -18,10 +18,10 @@ use App\Http\Controllers\AuthCustomerController;
 |
 */
 
-Route::get('/', [AuthController::class, 'login'])->name('login');
+Route::get('/admin/login', [AuthController::class, 'login'])->name('login');
 Route::post('/auth/login', [AuthController::class, 'postLogin']);
 Route::get('/logout', [AuthController::class, 'logout']);
-Route::get('/customer', [CustomerController::class, 'index']);
+Route::get('/', [CustomerController::class, 'index']);
 
 
 
@@ -41,12 +41,15 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/product/store', [ProductController::class, 'storeProduct']);
     Route::post('/product/update', [ProductController::class, 'updateProduct']);
     Route::delete('/product/delete', [ProductController::class, 'deleteProduct']);
-
-
 });
 
 Route::middleware(['customer.auth'])->group(function () {
-    Route::post('/customer/update-profile', [AuthCustomerController::class, 'updateProfile'])->name('customer.updateProfile');
+    Route::post('/customer/update-profile', [AuthCustomerController::class, 'updateProfile']);
+    Route::get('/customer/detail/{id}', [CustomerController::class, 'detailProduct']);
+    Route::post('/customer/order', [CustomerController::class, 'orderProduct']);
+    Route::get('/customer/cart/{id}', [CustomerController::class, 'cartProduct']);
+    Route::post('/customer/cancel-order', [CustomerController::class, 'cancelProduct']);
+    Route::post('/customer/pay', [CustomerController::class, 'payProduct']);
    
 });
 

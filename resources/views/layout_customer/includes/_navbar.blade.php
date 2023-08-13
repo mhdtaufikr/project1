@@ -1,15 +1,18 @@
 <!-- Responsive navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container px-lg-5">
-        <a class="navbar-brand" href="#!">RideDealExchange</a>
+        <a class="navbar-brand" href="{{ url('/') }}">RideDealExchange</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
-                
                 @auth('customer')
+                <li class="nav-item {{ request()->is('/*') && !request()->is('customer/cart*') ? 'active' : '' }}">
+                    <a class="nav-link {{ request()->is('/*') && !request()->is('customer/cart*') ? 'active' : '' }}" aria-current="page" href="{{ url('/') }}">Home</a>
+                </li>
+                <li class="nav-item {{ request()->is('customer/cart*') ? 'active' : '' }}">
+                    <a class="nav-link {{ request()->is('customer/cart*') ? 'active' : '' }}" href="{{ url('customer/cart/'.encrypt(auth()->guard('customer')->user()->id)) }}">My Cart</a>
+                </li>
+              
                 <!-- If user is logged in -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -17,7 +20,7 @@
                         {{ auth()->guard('customer')->user()->name }}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editProfileModal" data-bs-backdrop="static" data-bs-keyboard="false">Edit Profile</a></li>
+                        <li><a class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#editProfileModal" data-bs-backdrop="static" data-bs-keyboard="false">Edit Profile</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{{ url('/customer/logout') }}">Logout</a></li>
                         @else
@@ -39,7 +42,7 @@
                 <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('customer.updateProfile') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('/customer/update-profile') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="mb-3">

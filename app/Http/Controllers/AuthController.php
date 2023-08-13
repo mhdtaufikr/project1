@@ -50,12 +50,12 @@ class AuthController extends Controller
                 }
             }
             else{
-                return redirect('/')->with('statusLogin','Give Access First to User');
+                return redirect('/admin/login')->with('statusLogin','Give Access First to User');
             }
         }
         else{
             //dd('hai');
-            return redirect('/')->with('statusLogin','Wrong Email or Password');
+            return redirect('/admin/login')->with('statusLogin','Wrong Email or Password');
         }
     }
 

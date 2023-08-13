@@ -44,7 +44,7 @@
                                         <!--alert success -->
 
                                         <!-- Login form-->
-                                        <form action="{{ url('/customer/auth/login') }}" method="POST" enctype="multipart/form-data">
+                                        <form action="{{ url('customer/auth/login') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <!-- Form Group (email address)-->
                                             <div class="mb-3">
@@ -65,7 +65,7 @@
                                             </div> --}}
                                             <!-- Form Group (login box)-->
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="{{ url('/customer/register') }}">Register</a>
+                                                <a class="small" href="{{ url('customer/register') }}">Register</a>
                                                 <button type="submit" class="btn btn-primary">Login</button>
                                             </div>
                                         </form>

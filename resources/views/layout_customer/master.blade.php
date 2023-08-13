@@ -32,13 +32,18 @@
         <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js') }}"></script>
         <script src="{{ url('https://cdn.datatables.net/datetime/1.1.1/js/dataTables.dateTime.min.js') }}"></script>
     </head>
-    <body>
+    <!-- layout_customer.master -->
+    <body style="display: flex; flex-direction: column; min-height: 100vh;">
         @include('layout_customer.includes._navbar')
-        @yield('content')
-        @include('layout_customer.includes._footer')
+        <div class="mb-4 mt-4 flex-grow-1">
+            @yield('content')
+        </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <!-- Custom scripts -->
+        <script src="{{ asset('js/custom.js') }}"></script>
+        @include('layout_customer.includes._footer')
     </body>
+    
+    
 </html>

@@ -105,7 +105,7 @@ public function postLogin(Request $request) {
 
             // You can also perform your audit log here if needed
 
-            return redirect('/customer');
+            return redirect('/');
         } else {
             Auth::guard('customer')->logout();
             return redirect('/customer/login')->with('statusLogin', 'Give Access First to User');
@@ -119,6 +119,6 @@ public function postLogin(Request $request) {
     public function logout()
     {
         Auth::guard('customer')->logout();
-        return redirect('/customer')->with('statusLogout','Success Logout');
+        return redirect('/')->with('statusLogout','Success Logout');
     }
 }

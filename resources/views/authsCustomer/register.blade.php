@@ -37,7 +37,7 @@
                                         <!--alert success -->
 
                                     <!-- Registration form -->
-                                    <form action="{{ url('/customer/register/store') }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ url('customer/register/store') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <!-- Form Group (name) -->
                                         <div class="mb-3">
