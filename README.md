@@ -1,5 +1,5 @@
 
-
+```markdown
 # RideDealExchange - Job Recruiter Application
 
 Welcome to the RideDealExchange Job Recruiter Application!
@@ -10,21 +10,21 @@ Developed by Muhammad Taufik Ramadhan as part of the project for Job Recruiter P
 
 1. Clone the repository:
 
-
+   ```bash
    git clone https://github.com/mhdtaufikr/project1.git
-
+   ```
 
 2. Navigate to the project directory:
 
-
+   ```bash
    cd project1
-
+   ```
 
 3. Copy the example `.env` file and configure the database settings:
 
-
+   ```bash
    cp .env.example .env
-
+   ```
 
 4. Update the `.env` file:
 
@@ -52,27 +52,27 @@ Developed by Muhammad Taufik Ramadhan as part of the project for Job Recruiter P
 
 5. Install project dependencies:
 
-
+   ```bash
    composer install
-
+   ```
 
 6. Generate a unique application key:
 
-
+   ```bash
    php artisan key:generate
-
+   ```
 
 7. Run the database migrations and seed the database:
 
-
+   ```bash
    php artisan migrate --seed
-
+   ```
 
 8. Start the development server:
 
-
+   ```bash
    php artisan serve
-
+   ```
 
    The application will be available at `http://localhost:8000`.
 
@@ -81,7 +81,7 @@ Developed by Muhammad Taufik Ramadhan as part of the project for Job Recruiter P
 To access the admin panel, visit `/admin/login` or click the "Admin Login" button in the footer of the website.
 
 - **Email:** taufik@gmail.com
-- **Password:** -
+- **Password:** (Leave blank)
 
 ## Usage
 
