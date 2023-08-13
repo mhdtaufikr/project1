@@ -1,4 +1,3 @@
-Absolutely, here's the updated README.md file with the additional information:
 
 
 # RideDealExchange - Job Recruiter Application
