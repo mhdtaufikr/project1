@@ -1,3 +1,5 @@
+
+
 ```markdown
 # RideDealExchange - Job Recruiter Application
 
@@ -9,9 +11,9 @@ Developed by Muhammad Taufik Ramadhan as part of the project for Job Recruiter P
 
 1. Clone the repository:
 
+   ```bash
    git clone https://github.com/mhdtaufikr/project1.git
-
-
+   ```
 
 2. Navigate to the project directory:
 
