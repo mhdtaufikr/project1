@@ -13,6 +13,7 @@ Developed by Muhammad Taufik Ramadhan as part of the project for Job Recruiter P
    git clone https://github.com/mhdtaufikr/project1.git
    ```
 
+
 2. Navigate to the project directory:
 
    ```bash
