@@ -14,7 +14,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Vespa Matic 2022',
             'description' => '<p>Pajak Mati 1 Tahun</p>',
             'price' => 20000000.00,
-            'status' => 1,
+            'status' => 0,
             'product_picture' => 'img/1691853189.png',
         ]);
 
