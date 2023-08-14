@@ -1,4 +1,5 @@
 
+
 ```markdown
 # RideDealExchange - Job Recruiter Application
 
@@ -66,6 +67,8 @@ Developed by Muhammad Taufik Ramadhan as part of the project for Job Recruiter P
 
    ```bash
    php artisan migrate --seed
+   php artisan db:seed --class=UsersTableSeeder
+   php artisan db:seed --class=ProductsTableSeeder
    ```
 
 8. Start the development server:
@@ -101,4 +104,4 @@ To access the admin panel, visit `/admin/login` or click the "Admin Login" butto
 This project is licensed under the [MIT License](LICENSE).
 ```
 
-Feel free to copy and paste this into your README.md file.
+Please copy and paste this updated content into your README.md file.
